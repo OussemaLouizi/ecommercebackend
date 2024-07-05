@@ -24,3 +24,4 @@ app.use('/api/articles', articleRouter)
 
 app.listen(process.env.PORT)
 console.log("application run at port "+process.env.PORT)
+module.exports = app;
