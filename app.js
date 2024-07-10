@@ -1,7 +1,11 @@
 const express=require("express")
 const dotenv=require ("dotenv")
 const mongoose=require("mongoose")
+const cors=require("cors")
 const app=express()
+app.use(cors({
+    origin:'http://localhost:3002'
+}))
 const categorieRouter=require("./routes/categorie.route")
 const scategorieRouter=require("./routes/scategorie.route")
 const articleRouter =require("./routes/article.route")
