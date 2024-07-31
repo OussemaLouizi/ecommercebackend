@@ -26,7 +26,7 @@ process.exit(); });
 app.use("/api/categories",categorieRouter)
 app.use("/api/scategories",scategorieRouter)
 app.use('/api/articles', articleRouter)
-app.use('/api/payment', paymentRouter);
+app.use('/api/payment', paymentRouter)
 
 app.listen(process.env.PORT)
 console.log("application run at port "+process.env.PORT)
