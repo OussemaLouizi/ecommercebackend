@@ -9,6 +9,7 @@ app.use(cors({
 const categorieRouter=require("./routes/categorie.route")
 const scategorieRouter=require("./routes/scategorie.route")
 const articleRouter =require("./routes/article.route")
+const paymentRouter =require("./routes/payment.route.js");
 //middleware
 app.use(express.json())
 dotenv.config()
@@ -25,6 +26,7 @@ process.exit(); });
 app.use("/api/categories",categorieRouter)
 app.use("/api/scategories",scategorieRouter)
 app.use('/api/articles', articleRouter)
+app.use('/api/payment', paymentRouter);
 
 app.listen(process.env.PORT)
 console.log("application run at port "+process.env.PORT)
