@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const Stripe = require('stripe')('sk_test_51Piid8RxLNSlyexVQdZtIwsG8q9qWgxWA7Up90rNsmKGMWRP9mfoJaQxZYeFR7R5L8eqJBdoB9GPoY4FVm1WL5XM00FmhDEfjD');
+const Stripe = require('stripe')('sk_test_51Piid8RxLNSlyexVNdUP2RocHvwgeb9q5uPxqIdhRgFsWmZFy7SYMDIkeRQs0ADeDsonqEeeBswm78UHX6dzzr9S00LP0pTKgT');
 router.post('/', async (req, res) => {
 try {
 const session = await Stripe.checkout.sessions.create({
