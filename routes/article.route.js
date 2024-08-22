@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const Article=require("../models/article")
+const Article=require("../models/article");
+const { verifyToken } = require('../middleware/verify-token');
+const { authorizeRoles } = require('../middleware/authorizeRoles');
 // afficher la liste des articles.
 router.get('/art/pagination', async(req, res) => {
     const filtre = req.query.filtre || "";
@@ -31,7 +33,7 @@ res.status(200).json(articles);
 res.status(404).json({ message: error.message });
 }
 });
-router.get('/', async (req, res, )=> {
+router.get('/',verifyToken,authorizeRoles("admin","visiteur"), async (req, res, )=> {
      try { const articles = await Article.find({}, null, {sort: {'_id': -1}}).populate("scategorieID").exec(); 
      res.status(200).json(articles); } 
      catch (error)
